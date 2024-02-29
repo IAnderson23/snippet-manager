@@ -1,4 +1,4 @@
-import {IModal} from "@atoms/model-atom.ts";
+import {IModal} from "@atoms/model.atom.ts";
 import {IFolder, IFragment, ISnippet} from "../../database/database.types.ts"
 
 class Modal {

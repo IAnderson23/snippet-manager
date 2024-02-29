@@ -1,7 +1,7 @@
 import {IFolder} from "../../../../database/database.types.ts";
 import {ReactElement} from "react";
 import {useSetAtom} from "jotai";
-import {modalAtom} from "@atoms/model-atom.ts";
+import {modalAtom} from "@atoms/model.atom.ts";
 import Icon from "@mdi/react";
 import {mdiDotsHorizontal} from "@mdi/js";
 import {Menu, MenuItem} from "@features/dropdown-menu";

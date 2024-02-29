@@ -1,13 +1,10 @@
-import {useAtom} from "jotai";
-
 import {IFolder} from "../../../../database/database.types.ts";
-import {allFoldersAtom} from "@atoms/all-folders.atom.ts";
 import {db} from "../../../../database/database-init.ts";
 import {useLiveQuery} from "dexie-react-hooks";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
-function useAllFolder(): IFolder[] {
-  const [allFolders, setAllFolders] = useAtom(allFoldersAtom);
+function useAllFolders(): IFolder[] {
+  const [allFolders, setAllFolders] = useState<IFolder[]>([]);
   const folders: IFolder[] | undefined = useLiveQuery(() => db.folders.toArray(), []);
 
   useEffect(() => {
@@ -17,4 +14,4 @@ function useAllFolder(): IFolder[] {
   return allFolders;
 }
 
-export default useAllFolder;
+export default useAllFolders;

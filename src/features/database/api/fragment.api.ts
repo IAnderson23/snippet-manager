@@ -1,5 +1,5 @@
-import {db} from "../database-init.ts";
-import {IFragment} from "../database.types.ts";
+import db from "../src/database-init.ts";
+import {IFragment} from "../types/database.types.ts";
 
 export function createFragment(fragment: IFragment):void {
   db.fragments.add(fragment).then(handleSuccess).catch(handleError)

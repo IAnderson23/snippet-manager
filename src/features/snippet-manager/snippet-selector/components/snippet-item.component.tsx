@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
 import {useAllFolders} from "@features/snippet-manager";
 import useRecentSnippets from "../hooks/use-recent-snippets.hook.ts";
-import {ISnippet} from "../../../../database/database.types.ts";
+import {ISnippet} from "@features/database/types/database.types.ts";
 import {ReactElement} from "react";
 dayjs.extend(relativeTime);
 

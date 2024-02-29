@@ -5,7 +5,7 @@ import {mdiFolderOpenOutline, mdiFolderOutline} from "@mdi/js";
 
 import Filter from "@utils/constructors/filter-constructor.util.ts";
 import FilterItem from "../components/filter-item.component.tsx";
-import {IFolder} from "../../../../database/database.types.ts";
+import {IFolder} from "@features/database/types/database.types.ts";
 import FolderActions from "./folder-actions.component.tsx";
 import {filterAtom} from "@atoms/filter.atom.ts";
 

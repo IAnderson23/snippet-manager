@@ -1,5 +1,5 @@
-import {IFolder} from "../../../../database/database.types.ts";
-import {db} from "../../../../database/database-init.ts";
+import {IFolder} from "@features/database/types/database.types.ts";
+import db from "@features/database/src/database-init.ts";
 import {useLiveQuery} from "dexie-react-hooks";
 import {useEffect, useState} from "react";
 

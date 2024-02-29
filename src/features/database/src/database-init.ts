@@ -1,5 +1,5 @@
 import Dexie, {Table} from "dexie";
-import {IFolder, IFragment, ISnippet} from "./database.types.ts";
+import {IFolder, IFragment, ISnippet} from "../types/database.types.ts";
 
 class MyDexie extends Dexie {
   folders!: Table<IFolder, number>
@@ -17,4 +17,6 @@ class MyDexie extends Dexie {
   }
 }
 
-export const db = new MyDexie();
+const db = new MyDexie();
+
+export default db;

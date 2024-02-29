@@ -1,6 +1,6 @@
-import {ISnippet} from "../../../../database/database.types.ts";
+import {ISnippet} from "@features/database/types/database.types.ts";
 import {useLiveQuery} from "dexie-react-hooks";
-import {db} from "../../../../database/database-init.ts";
+import db from "@features/database/src/database-init.ts";
 import {useEffect, useState} from "react";
 
 function useAllSnippets() {

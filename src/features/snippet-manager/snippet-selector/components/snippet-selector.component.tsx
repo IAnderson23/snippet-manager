@@ -1,6 +1,7 @@
 import SearchBar from "./search-bar.component.tsx";
 import SortControls from "./sort-controls.component.tsx";
 import AddSnippetButton from "./add-snippet-button.component.tsx";
+import SnippetList from "./snippet-list.component.tsx";
 
 function SnippetSelector() {
   return (
@@ -10,7 +11,7 @@ function SnippetSelector() {
         <SortControls/>
         <AddSnippetButton/>
       </div>
-
+      <SnippetList/>
     </div>
   )
 }

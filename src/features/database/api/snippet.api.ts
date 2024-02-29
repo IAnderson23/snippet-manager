@@ -1,5 +1,5 @@
-import {ISnippet} from "../database.types.ts";
-import {db} from "../database-init.ts";
+import {ISnippet} from "../types/database.types.ts";
+import db from "../src/database-init.ts";
 
 export function createSnippet(snippet: ISnippet): void {
   db.snippets.add(snippet).then(handleSuccess).catch(handleError);

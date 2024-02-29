@@ -1,4 +1,4 @@
-import {IFolder} from "../../../../database/database.types.ts";
+import {IFolder} from "@features/database/types/database.types.ts";
 import {ReactElement} from "react";
 import {useSetAtom} from "jotai";
 import {modalAtom} from "@atoms/model.atom.ts";

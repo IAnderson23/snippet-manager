@@ -1,4 +1,4 @@
-import {db} from "./database/database-init.ts";
+import {db} from "@features/database";
 import {Folder, Fragment, Snippet} from "@utils/constructors/database-constructors.util.ts";
 
 declare global {

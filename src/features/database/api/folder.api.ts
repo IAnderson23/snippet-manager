@@ -1,5 +1,5 @@
-import {IFolder} from "../database.types.ts";
-import {db} from "../database-init.ts";
+import {IFolder} from "@features/database";
+import db from "../src/database-init.ts";
 
 export function createFolder(folder: IFolder): void {
   db.folders.add(folder).then(handleSuccess).catch(handleError)

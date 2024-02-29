@@ -1,4 +1,4 @@
-import {ISnippet} from "../../../../database/database.types.ts";
+import {ISnippet} from "@features/database/types/database.types.ts";
 import {useState} from "react";
 
 interface IRecentSnippet {

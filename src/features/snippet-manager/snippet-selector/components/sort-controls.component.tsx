@@ -18,7 +18,8 @@ function SortControls() {
 
   return (
     <div id={"controls"}>
-      <button onClick={handleClick}><Icon path={isAscending ? mdiSortAscending : mdiSortDescending} size={1}/>
+      <button onClick={handleClick}>
+        <Icon path={isAscending ? mdiSortAscending : mdiSortDescending} size={1}/>
       </button>
       <div id={"select-container"}>
         <select defaultValue={"created"} onChange={handleChange}>

@@ -11,7 +11,6 @@ function CodeEditor(): ReactNode {
 
   return snippet.id && (
     <div id={'code-editor'}>
-      <h1>Code Editor</h1>
       <EditorHeader/>
       <FragmentList/>
       <EditorWorkspace/>

@@ -17,9 +17,9 @@ function SmartGroupItem() {
     setFilter(Filter.smartGroup(target));
   }
 
-  const allSnippetIcon = <Icon className={'item-icon'} path={mdiArchiveOutline}/>
-  const uncategorizedIcon = <Icon className={'item-icon'} path={mdiHelpCircleOutline}/>
-  const recentSnippetIcon = <Icon className={'item-icon'} path={mdiHistory}/>
+  const allSnippetIcon = <Icon className={'item-icon'} path={mdiArchiveOutline} size={1}/>
+  const uncategorizedIcon = <Icon className={'item-icon'} path={mdiHelpCircleOutline}size={1}/>
+  const recentSnippetIcon = <Icon className={'item-icon'} path={mdiHistory} size={1}/>
 
   return (
     <>

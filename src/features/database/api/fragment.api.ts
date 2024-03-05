@@ -3,17 +3,21 @@ import {IFragment} from "../types/database.types.ts";
 
 export async function createFragment(fragment: IFragment): Promise<void> {
   const snippet = await db.snippets.get(fragment.snippetId);
-  snippet?.fragments.push(fragment.id!);
 
-  await db.snippets.update(snippet!.id!, {fragments: snippet?.fragments});
-  await db.fragments.add(fragment).then(handleSuccess).catch(handleError)
+  if (snippet) {
+    const fragmentId = await db.fragments.add(fragment);
+    snippet.fragments.push(fragmentId);
 
-  function handleSuccess(id: number): void {
-    console.log(`Fragment ${id} Was Created`)
-  }
-
-  function handleError(e: Error): void {
-    alert (`Error Creating Fragment: ` + e)
+    db.snippets.update(snippet.id!, snippet).then(updated => {
+      if (updated)
+        console.log(`Fragment ${fragmentId} Was Created`)
+      else {
+        deleteFragment(fragmentId);
+        console.log(`Error Updating Snippet With Id Of ${snippet.id}`)
+      }
+    })
+  } else {
+    console.log(`Error Could Not Find Snippet With Given Id`);
   }
 }
 

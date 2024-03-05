@@ -4,7 +4,7 @@ import useFirstFragment from "@features/snippet-manager/code-editor/hooks/use-fi
 
 function FragmentList() {
   const fragments = useSnippetFragments();
-  useFirstFragment()
+  useFirstFragment(fragments)
 
   return fragments && (
     <div id={'fragment-list-container'}>

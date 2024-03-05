@@ -1,18 +1,21 @@
-import {useState} from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import './sass/app.sass'
 import './App.css'
 import {CodeEditor, FilterSelector, SnippetSelector} from "@features/snippet-manager";
 
 function App() {
+  return (
+    <div id={'app'}>
+      <FilterSelector/>
+      <SnippetSelector/>
+      <CodeEditor/>
+    </div>
+  )
+}
+
+/*
   const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <FilterSelector/>
-        <SnippetSelector/>
-        <CodeEditor/>
+ <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -32,8 +35,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </>
-  )
-}
+ */
+
 
 export default App

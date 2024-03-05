@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {db, IFragment} from "@features/database";
 import {useLiveQuery} from "dexie-react-hooks";
+import {useAtom} from "jotai";
+import {allFragmentsAtom} from "@atoms/all-fragments.atom.ts";
 
 function useAllFragments(): IFragment[] | undefined {
-  const [allFragments, setAllFragments] = useState<IFragment[]>([]);
+  const [allFragments, setAllFragments] = useAtom(allFragmentsAtom);
   const fragments = useLiveQuery(() => db.fragments.toArray(), []);
 
   useEffect(() => {

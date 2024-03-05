@@ -25,7 +25,7 @@ function FolderItem({folder}: IFolderItemProps): ReactElement {
   }
 
   const icon: ReactElement = (
-    <Icon className={'item-icon'} path={isActive() ? mdiFolderOpenOutline : mdiFolderOutline}/>
+    <Icon className={'item-icon'} path={isActive() ? mdiFolderOpenOutline : mdiFolderOutline} size={1}/>
   )
 
   return (

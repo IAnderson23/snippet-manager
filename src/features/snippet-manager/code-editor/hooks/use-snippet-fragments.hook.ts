@@ -1,9 +1,9 @@
 import {useAtomValue} from "jotai";
 import {snippetAtom} from "@atoms/snippet.atom.ts";
 import useAllFragments from "./use-all-fragments.hook.ts";
-import bulkFind from "@features/snippet-manager/utils/bulk-find.function.ts";
-import {IFragment} from "@features/database";
+import {createFragment, IFragment} from "@features/database";
 import {useEffect, useState} from "react";
+import {Fragment} from "@utils/constructors/database-constructors.util.ts";
 
 function useSnippetFragments(): IFragment[] {
   const snippet = useAtomValue(snippetAtom)
@@ -11,10 +11,18 @@ function useSnippetFragments(): IFragment[] {
   const [snippetFragments, setSnippetFragments] = useState<IFragment[]>([])
 
   useEffect(() => {
-    if (snippet.fragments.length && fragments) {
-      setSnippetFragments(bulkFind(snippet.fragments, fragments))
+    if (fragments) {
+      const foundFragments = fragments.filter(fragment => fragment.snippetId === snippet.id);
+
+      if (foundFragments.length)
+        setSnippetFragments(foundFragments)
+      else {
+        const newFragment = Fragment.create(snippet.id!, 1);
+        createFragment(newFragment)
+      }
+
     }
-  }, [fragments, snippet.fragments, snippet.id]);
+  }, [fragments, snippet.id]);
 
   return snippetFragments;
 }

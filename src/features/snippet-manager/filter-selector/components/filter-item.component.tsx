@@ -4,14 +4,14 @@ import {ReactElement} from "react";
 interface FilterItemProps {
   name: string;
   icon: ReactElement;
-  activeChecker: () => string;
+  isActive: () => string;
   handleClick: () => void;
   children?: ReactElement;
 }
 
-function FilterItem({name, icon, activeChecker, handleClick, children}: FilterItemProps): ReactElement {
+function FilterItem({name, icon, isActive, handleClick, children}: FilterItemProps): ReactElement {
   return (
-    <li className={"directory-item " + activeChecker()}>
+    <li className={"directory-item " + isActive()}>
       <div className={"item-header"} onClick={() => handleClick()}>
         {icon}
         <p className={"item-name"}>{name}</p>

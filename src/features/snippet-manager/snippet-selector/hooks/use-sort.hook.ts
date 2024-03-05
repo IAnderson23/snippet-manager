@@ -13,7 +13,6 @@ function useSort() {
 
   useEffect(() => {
     const sortedList = sort(snippets, sortBy);
-    console.log(sortedList)
     const orderList = [...sortedList];
 
     if (!isAscending)

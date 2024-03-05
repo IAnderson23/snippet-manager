@@ -1,10 +1,13 @@
-import {ISnippet} from "@features/database/types/database.types.ts";
+import {useAtom} from "jotai";
+import {useEffect} from "react";
 import {useLiveQuery} from "dexie-react-hooks";
-import db from "@features/database/src/database-init.ts";
-import {useEffect, useState} from "react";
+
+import {allSnippetsAtom} from "@atoms/all-snippets.atom.ts";
+import {ISnippet} from "@features/database";
+import {db} from "@features/database";
 
 function useAllSnippets() {
-  const [allSnippets, setAllSnippets] = useState<ISnippet[]>([]);
+  const [allSnippets, setAllSnippets] = useAtom(allSnippetsAtom);
   const snippets: ISnippet[] | undefined = useLiveQuery<ISnippet[]>(() => db.snippets.toArray(), []);
 
   useEffect(() => {

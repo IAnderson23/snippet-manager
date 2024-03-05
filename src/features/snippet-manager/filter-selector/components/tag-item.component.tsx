@@ -14,7 +14,7 @@ interface TagItemProps {
 function TagItem({tag}: TagItemProps): ReactElement {
   const [filter, setFilter] = useAtom(filterAtom);
 
-  function activeChecker() {
+  function isActive(): string {
     return filter.type === "tag" && filter.target === tag ? "active" : "";
   }
 
@@ -25,7 +25,7 @@ function TagItem({tag}: TagItemProps): ReactElement {
   const icon = <Icon className={'item-icon'} path={mdiTagOutline}/>
 
   return (
-    <FilterItem name={tag} icon={icon} activeChecker={activeChecker} handleClick={handleClick}/>
+    <FilterItem name={tag} icon={icon} isActive={isActive} handleClick={handleClick}/>
   )
 }
 

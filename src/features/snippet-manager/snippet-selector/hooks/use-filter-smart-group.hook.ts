@@ -1,7 +1,7 @@
 import {useAtomValue} from "jotai";
 import {filterAtom} from "@atoms/filter.atom.ts";
 import {useAllSnippets} from "@features/snippet-manager";
-import {ISnippet} from "@features/database/types/database.types.ts";
+import {ISnippet} from "@features/database";
 import useRecentSnippets from "../hooks/use-recent-snippets.hook.ts";
 import {useCallback, useEffect, useState} from "react";
 

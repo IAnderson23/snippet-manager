@@ -16,7 +16,7 @@ interface IFolderItemProps {
 function FolderItem({folder}: IFolderItemProps): ReactElement {
   const [filter, setFilter] = useAtom(filterAtom);
 
-  function activeChecker(): string {
+  function isActive(): string {
     return filter.type === 'folder' && filter.target == folder.id! ? 'active' : '';
   }
 
@@ -25,11 +25,11 @@ function FolderItem({folder}: IFolderItemProps): ReactElement {
   }
 
   const icon: ReactElement = (
-    <Icon className={'item-icon'} path={activeChecker() ? mdiFolderOpenOutline : mdiFolderOutline}/>
+    <Icon className={'item-icon'} path={isActive() ? mdiFolderOpenOutline : mdiFolderOutline}/>
   )
 
   return (
-    <FilterItem key={folder.id} name={folder.name} icon={icon} activeChecker={activeChecker} handleClick={handleClick}>
+    <FilterItem key={folder.id} name={folder.name} icon={icon} isActive={isActive} handleClick={handleClick}>
       <FolderActions folder={folder}/>
     </FilterItem>
   )

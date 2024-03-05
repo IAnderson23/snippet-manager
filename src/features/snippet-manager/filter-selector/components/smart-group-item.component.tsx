@@ -9,7 +9,7 @@ import Filter from "@utils/constructors/filter-constructor.util.ts";
 function SmartGroupItem() {
   const [filter, setFilter] = useAtom(filterAtom);
 
-  function activeChecker(target: string) {
+  function isActive(target: string): string {
     return filter.type === "smartGroup" && filter.target === target ? "active" : "";
   }
 
@@ -26,19 +26,19 @@ function SmartGroupItem() {
       <FilterItem
         name={'All Snippet'}
         icon={allSnippetIcon}
-        activeChecker={() => activeChecker('all')}
+        isActive={() => isActive('all')}
         handleClick={()=> handleClick('all')}
       />
       <FilterItem
         name={'Uncategorized'}
         icon={uncategorizedIcon}
-        activeChecker={() => activeChecker('uncategorized')}
+        isActive={() => isActive('uncategorized')}
         handleClick={()=> handleClick('uncategorized')}
       />
       <FilterItem
         name={'Recent'}
         icon={recentSnippetIcon}
-        activeChecker={() => activeChecker('recent')}
+        isActive={() => isActive('recent')}
         handleClick={()=> handleClick('recent')}
       />
     </>

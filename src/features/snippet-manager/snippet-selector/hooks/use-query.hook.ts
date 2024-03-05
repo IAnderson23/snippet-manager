@@ -1,9 +1,9 @@
 import {useAtomValue} from "jotai";
 import {useCallback, useEffect, useState} from "react";
 
-import {ISnippet} from "@features/database";
 import userQueryAtom from "@atoms/user-query.atom.ts";
 import useFilter from "../hooks/use-filter.hook.ts";
+import {ISnippet} from "@features/database";
 
 function useQuery() {
   const userQuery = useAtomValue(userQueryAtom);

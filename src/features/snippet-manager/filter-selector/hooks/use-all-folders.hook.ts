@@ -1,7 +1,8 @@
-import {IFolder} from "@features/database/types/database.types.ts";
-import db from "@features/database/src/database-init.ts";
-import {useLiveQuery} from "dexie-react-hooks";
 import {useEffect, useState} from "react";
+import {useLiveQuery} from "dexie-react-hooks";
+
+import {IFolder} from "@features/database";
+import {db} from "@features/database";
 
 function useAllFolders(): IFolder[] {
   const [allFolders, setAllFolders] = useState<IFolder[]>([]);

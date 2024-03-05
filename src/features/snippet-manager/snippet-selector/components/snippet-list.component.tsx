@@ -7,7 +7,7 @@ function SnippetList() {
   return (
     <ul>
       {snippets.map((snippet, index) => {
-        return <SnippetItem snippet={snippet} key={index}/>
+        return <SnippetItem itemId={snippet.id!} key={index}/>
       })}
     </ul>
   )

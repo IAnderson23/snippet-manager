@@ -1,8 +1,12 @@
 import db from "../src/database-init.ts";
 import {IFragment} from "../types/database.types.ts";
 
-export function createFragment(fragment: IFragment):void {
-  db.fragments.add(fragment).then(handleSuccess).catch(handleError)
+export async function createFragment(fragment: IFragment): Promise<void> {
+  const snippet = await db.snippets.get(fragment.snippetId);
+  snippet?.fragments.push(fragment.id!);
+
+  await db.snippets.update(snippet!.id!, {fragments: snippet?.fragments});
+  await db.fragments.add(fragment).then(handleSuccess).catch(handleError)
 
   function handleSuccess(id: number): void {
     console.log(`Fragment ${id} Was Created`)

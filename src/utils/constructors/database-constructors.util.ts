@@ -26,13 +26,13 @@ export class Snippet {
 }
 
 export class Fragment {
-  static create(snippetId?: number, name?: string): IFragment {
+  static create(snippetId: number, order: number, name?: string): IFragment {
     return ({
       snippetId: snippetId ?? 0,
       name: name ?? 'Fragment',
       code: 'console.log("Hello World");',
       language: 'Javascript',
-      order: 0,
+      order: order,
     })
   }
 }

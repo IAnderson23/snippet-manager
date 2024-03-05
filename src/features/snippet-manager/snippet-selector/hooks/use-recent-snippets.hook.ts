@@ -1,5 +1,7 @@
-import {ISnippet} from "@features/database/types/database.types.ts";
-import {useState} from "react";
+import {useAtom} from "jotai";
+
+import {ISnippet} from "@features/database";
+import {recentSnippetsAtom} from "@atoms/recent-snippets.atom.ts";
 
 interface IRecentSnippet {
   recentSnippets: ISnippet[];
@@ -7,7 +9,7 @@ interface IRecentSnippet {
 }
 
 function useRecentSnippets():IRecentSnippet {
-  const [recentSnippets, setRecentSnippets] = useState<ISnippet[]>([]);
+  const [recentSnippets, setRecentSnippets] = useAtom<ISnippet[]>(recentSnippetsAtom);
 
   function updateRecentSnippets (newSnippet: ISnippet): void {
     setRecentSnippets(previousList => {

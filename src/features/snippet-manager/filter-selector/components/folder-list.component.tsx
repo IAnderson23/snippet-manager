@@ -2,7 +2,7 @@ import {ReactElement} from "react";
 import Icon from "@mdi/react";
 import {mdiPlus} from "@mdi/js";
 import FilterList from "./filter-list.component.tsx";
-import useAllFolders from "@features/snippet-manager/filter-selector/hooks/use-all-folders.hook.ts";
+import useAllFolders from "../hooks/use-all-folders.hook.ts";
 import FolderItem from "../components/folder-item.component.tsx";
 import {useSetAtom} from "jotai";
 import {modalAtom} from "@atoms/model.atom.ts";
@@ -25,7 +25,7 @@ function FolderList(): ReactElement {
 
   return (
     <div>
-      <FilterList header={header} name={'Folder'}>
+      <FilterList header={header} name={'Folders'}>
         {allFolders.map((folder, index) => <FolderItem key={index} folder={folder}/>)}
       </FilterList>
     </div>

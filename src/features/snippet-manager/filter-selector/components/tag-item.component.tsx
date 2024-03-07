@@ -22,7 +22,7 @@ function TagItem({tag}: TagItemProps): ReactElement {
     setFilter(Filter.tag(tag))
   }
 
-  const icon = <Icon className={'item-icon'} path={mdiTagOutline}/>
+  const icon = <Icon className={'item-icon'} path={mdiTagOutline} size={1}/>
 
   return (
     <FilterItem name={tag} icon={icon} isActive={isActive} handleClick={handleClick}/>

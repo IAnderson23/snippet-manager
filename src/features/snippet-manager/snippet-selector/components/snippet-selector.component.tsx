@@ -6,10 +6,12 @@ import SnippetList from "./snippet-list.component.tsx";
 function SnippetSelector() {
   return (
     <div id={'snippet-selector'}>
-      <SearchBar/>
-      <div id={'controls-container'}>
-        <SortControls/>
-        <AddSnippetButton/>
+      <div id={'snippet-selector-header'}>
+        <SearchBar/>
+        <div id={'controls-container'}>
+          <SortControls/>
+          <AddSnippetButton/>
+        </div>
       </div>
       <SnippetList/>
     </div>

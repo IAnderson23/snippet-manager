@@ -11,7 +11,7 @@ interface FilterItemProps {
 
 function FilterItem({name, icon, isActive, handleClick, children}: FilterItemProps): ReactElement {
   return (
-    <li className={"directory-item " + isActive()}>
+    <li className={"filter-item " + isActive()}>
       <div className={"item-header"} onClick={() => handleClick()}>
         {icon}
         <p className={"item-name"}>{name}</p>

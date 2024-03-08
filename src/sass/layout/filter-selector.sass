@@ -4,7 +4,63 @@
   grid-template-rows: repeat(3, max-content)
   gap: 20px
   box-sizing: border-box
-  padding: 20px 20px 0 20px
+  padding: 1em
   background-color: #292929
+
+  .filter-list-container
+    .list-header
+      margin-bottom: 12px
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      align-items: center
+
+    .filter-list
+      display: flex
+      flex-direction: column
+      gap: 4px
+
+      .filter-item
+        height: 3em
+        padding: 0 .5em
+        border-radius: 8px
+        display: flex
+        align-items: center
+        transition: all .2s ease-out
+
+        &:hover
+          background-color: #4d4d4d
+
+          .root-menu
+            visibility: visible
+            opacity: 1
+
+        &.active
+          color: white
+          background-color: #535bf2
+
+        .item-header
+          flex: 1
+          display: flex
+          gap: 8px
+          align-items: center
+          height: 100%
+          cursor: pointer
+
+          .item-icon
+            height: 1.5em
+            width: 1.5em
+
+          .item-name
+            height: max-content
+
+        .root-menu
+          visibility: hidden
+          opacity: 0
+          transition: all 0.2s ease-out
+
+          &[data-open]
+            visibility: visible
+            opacity: 1
 
   //background-color: #535bf2

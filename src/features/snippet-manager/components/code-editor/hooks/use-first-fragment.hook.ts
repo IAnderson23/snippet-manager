@@ -12,15 +12,19 @@ function useFirstFragment(snippetFragments: IFragment[]): void {
   const [fragment, setFragment] = useAtom(fragmentAtom);
 
   useEffect(() => {
-    if (fragment?.snippetId !== snippet.id) {
+    const isIdDifferent = fragment?.snippetId !== snippet.id;
+    const isFragmentDeleted = !snippet.fragments.some(fragmentId => fragmentId === fragment?.id)
+    const hasFragments = !isEmpty(snippetFragments)
+
+    if (hasFragments && (isFragmentDeleted || isIdDifferent)) {
       const first = snippetFragments.find(fragment => fragment.order === 1);
 
       if (first)
         setFragment(first)
-      else if (!first && !isEmpty(snippetFragments))
+      else
         reorderFragments(snippetFragments);
     }
-  }, [fragment, setFragment, snippet.id, snippetFragments]);
+  }, [fragment, setFragment, snippet.fragments, snippet.id, snippetFragments]);
 }
 
 export default useFirstFragment;

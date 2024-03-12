@@ -1,0 +1,32 @@
+#code-editor
+  display: grid
+  margin: 8px 8px 8px 0
+  grid-template-rows: max-content max-content 1fr
+  box-sizing: border-box
+  padding: 16px 12px 8px 12px
+  border-radius: 12px
+  border: 2px solid #292929
+
+  #editor-header
+    position: relative
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 1fr 1fr
+
+    #snippet-name
+      height: max-content
+      font-size: 32px
+      line-height: 1
+
+    #editor-menu
+      justify-self: end
+
+  #editor-footer
+    background-color: #1a1a1a
+    padding: 4px 8px
+    border-radius: 0 0 8px 8px
+    display: flex
+    justify-content: space-between
+
+
+

@@ -1,15 +1,22 @@
-@import './layout/filter-selector'
-@import './layout/snippet-selector'
-@import './components/snippet-controls'
+@import 'layout/filter-selector'
+@import 'layout/snippet-selector'
+@import 'components/snippet-controls'
+@import 'components/snippet-list'
+@import 'components/code-mirror'
+@import 'components/fragment-list'
+@import 'components/tag-list'
+@import 'components/dropdown-menu'
+@import 'layout/code-editor'
 
 *
+  outline: none
   margin: 0
   padding: 0
   font-size: 16px
 
-#app
+#snippet-manager
   display: grid
-  grid-template-columns: 256px 320px 1fr
+  grid-template-columns: 256px 328px 1fr
   grid-template-rows: 1fr
   gap: 8px
   height: 100vh

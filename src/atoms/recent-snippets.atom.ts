@@ -1,5 +1,6 @@
 import {atom} from "jotai";
+import {ISnippet} from "@database/database.types.ts";
 
-import {ISnippet} from "@features/database";
+
 
 export const recentSnippetsAtom = atom<ISnippet[]>([]);

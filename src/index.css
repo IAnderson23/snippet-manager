@@ -37,9 +37,10 @@ h1 {
 
 button {
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
   border: 1px solid transparent;
-  padding: .5em;
-  font-size: .5em;
+  padding: 7px;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
@@ -49,10 +50,7 @@ button {
 button:hover {
   border-color: #646cff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
+
 
 @media (prefers-color-scheme: light) {
   :root {

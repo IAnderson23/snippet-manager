@@ -1,5 +1,5 @@
 import {atom} from "jotai";
+import {IFolder} from "@database/database.types.ts";
 
-import {IFolder} from "@features/database";
 
 export const allFoldersAtom = atom<IFolder[]>([]);

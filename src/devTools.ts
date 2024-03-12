@@ -1,5 +1,7 @@
-import {db, IFolder, IFragment, ISnippet} from "@features/database";
+import {IFolder, IFragment, ISnippet} from "@database/database.types";
 import {Folder, Fragment, Snippet} from "@utils/constructors/database-constructors.util.ts";
+import db from "@database/database-init.ts";
+
 
 declare global {
   interface Window {

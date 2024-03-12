@@ -1,0 +1,26 @@
+.menu-container
+  .menu
+    background-color: rgba(26, 26, 26, 0.9)
+    border-radius: 8px
+    display: inline-flex
+    flex-direction: column
+    gap: 8px
+    padding: 8px
+
+    .menu-item
+      flex: 1
+      background: none
+      transition: all .2s ease-out
+      border: none
+
+      &:focus
+        background-color: #4d4d4d
+        color: white
+
+
+  //&[data-nested][data-open]:not([data-focus-inside])
+  //  background: #d00d0d
+  //  color: white
+  //
+  //&[data-focus-inside][data-open]
+  //  background: #d7dce5

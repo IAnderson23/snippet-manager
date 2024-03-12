@@ -1,4 +1,4 @@
-import {IFolder, IFragment, ISnippet} from "@features/database/types/database.types.ts";
+import {IFolder, IFragment, ISnippet} from "@database/database.types.ts";
 
 export class Folder {
   static create(name?: string): IFolder {

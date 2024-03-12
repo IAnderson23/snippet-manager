@@ -10,6 +10,7 @@
       "@atoms/*": ["./src/atoms/*"],
       "@utils/*": ["./src/utils/*"],
       "@sass/*": ["./src/sass/*"],
+      "@database/*": ["./src/database/*"],
     },
     /* Bundler mode */
     "moduleResolution": "bundler",

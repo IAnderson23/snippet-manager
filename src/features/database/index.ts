@@ -1,5 +1,0 @@
-export {default as db} from './src/database-init.ts'
-export type * from './types/database.types.ts'
-export * from './api/folder.api.ts'
-export * from './api/snippet.api.ts'
-export * from './api/fragment.api.ts'

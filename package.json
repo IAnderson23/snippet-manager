@@ -12,9 +12,11 @@
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.2",
     "@floating-ui/react": "^0.26.9",
+    "@formkit/auto-animate": "^0.8.1",
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@types/lodash": "^4.14.202",
+    "@uiw/codemirror-theme-vscode": "^4.21.24",
     "@uiw/react-codemirror": "^4.21.24",
     "dayjs": "^1.11.10",
     "dexie": "^3.2.5",

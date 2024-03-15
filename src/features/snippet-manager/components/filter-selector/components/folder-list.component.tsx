@@ -5,7 +5,7 @@ import FilterList from "./filter-list.component.tsx";
 import useAllFolders from "../hooks/use-all-folders.hook.ts";
 import FolderItem from "./folder-item.component.tsx";
 import {useSetAtom} from "jotai";
-import {modalAtom} from "@atoms/model.atom.ts";
+import {modalAtom} from "@atoms/modal.atom.ts";
 import Modal from "@utils/constructors/modal-constructor.util.ts";
 import {Folder} from "@utils/constructors/database-constructors.util.ts";
 

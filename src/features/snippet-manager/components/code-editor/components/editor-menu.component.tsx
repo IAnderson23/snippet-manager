@@ -1,5 +1,5 @@
 import {useAtomValue, useSetAtom} from "jotai";
-import {modalAtom} from "@atoms/model.atom.ts";
+import {modalAtom} from "@atoms/modal.atom.ts";
 import {snippetAtom} from "@atoms/snippet.atom.ts";
 import Icon from "@mdi/react";
 import {mdiDotsHorizontal} from "@mdi/js";

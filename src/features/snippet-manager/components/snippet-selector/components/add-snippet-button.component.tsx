@@ -4,7 +4,7 @@ import {useSetAtom} from "jotai";
 
 import {Snippet} from "@utils/constructors/database-constructors.util.ts";
 import Modal from "@utils/constructors/modal-constructor.util.ts";
-import {modalAtom} from "@atoms/model.atom.ts";
+import {modalAtom} from "@atoms/modal.atom.ts";
 
 function AddSnippetButton() {
   const setModal = useSetAtom(modalAtom);

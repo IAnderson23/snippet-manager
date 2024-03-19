@@ -9,9 +9,9 @@ import EditorFooter from "./editor-footer.component.tsx";
 function CodeEditor(): ReactNode {
   const snippet = useAtomValue(snippetAtom);
 
-  return snippet.id && (
+  return snippet?.id && (
     <div id={'code-editor'}>
-      <EditorHeader/>
+      <EditorHeader snippet={snippet}/>
       <FragmentList/>
       <EditorWorkspace/>
       <EditorFooter/>

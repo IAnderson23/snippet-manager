@@ -9,12 +9,13 @@ import {modalAtom} from "@atoms/modal.atom.ts";
 function AddSnippetButton() {
   const setModal = useSetAtom(modalAtom);
 
-  function handleClick(): void {
-    setModal(Modal.create('snippet', Snippet.create()));
+  function onClick(): void {
+    const modal = Modal.create('create', Snippet.default());
+    setModal(modal);
   }
 
   return (
-    <button id={'add-snippet-button'} onClick={handleClick}>
+    <button id={'add-snippet-button'} onClick={onClick}>
       <Icon path={mdiPlus} size={1}/>
     </button>
   )

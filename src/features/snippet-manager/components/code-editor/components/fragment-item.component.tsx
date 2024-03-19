@@ -3,11 +3,11 @@ import {fragmentAtom} from "@atoms/fragment.atom.ts";
 import {IFragment} from "@database/database.types.ts";
 
 
-interface IFragmentItemProps {
+interface IItemProps {
   item: IFragment;
 }
 
-function FragmentItem({item}: IFragmentItemProps) {
+function FragmentItem({item}: IItemProps) {
   const [fragment, setFragment] = useAtom(fragmentAtom);
 
   function isActive(): string {

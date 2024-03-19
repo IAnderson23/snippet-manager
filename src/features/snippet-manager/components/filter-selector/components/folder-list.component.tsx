@@ -13,12 +13,12 @@ function FolderList(): ReactElement {
   const setModal = useSetAtom(modalAtom);
   const allFolders = useAllFolders();
 
-  function HandleAdd() {
-    setModal(Modal.create('folder', Folder.create()))
+  function onAdd() {
+    setModal(Modal.create('create', Folder.create()))
   }
 
   const header = (
-    <button onClick={HandleAdd}>
+    <button onClick={onAdd}>
       <Icon path={mdiPlus} size={1}/>
     </button>
   )

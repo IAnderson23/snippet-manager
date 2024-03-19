@@ -1,21 +1,28 @@
-import {IModal, ITarget} from "@atoms/modal.atom.ts";
+import {IAction, IModal, ITarget} from "@atoms/modal.atom.ts";
+import {isFolder, isSnippet} from "@utils/type-guards.util.ts";
 
 class Modal {
-  static default(): undefined {
-    return undefined;
+
+  static create(action: IAction, item: ITarget["item"]): IModal {
+    const target: ITarget = this.createTarget(item);
+    return {action, target}
   }
 
-  static create(targetType: ITarget["type"], target: ITarget[]): IModal {
-    return {action: 'create', targetType: targetType, target: target};
-  }
+  private static createTarget(item: ITarget["item"]): ITarget {
+    let target: ITarget;
 
-  static edit(targetType: IModal["targetType"], target: IModal["target"]): IModal  {
-    return {action: 'edit', targetType: targetType, target: target};
-  }
+    if (isFolder(item))
+      target = {type: 'folder', item}
+    else if (isSnippet(item))
+      target = {type: 'snippet', item}
+    else
+      target = {type: 'fragment', item}
 
-  static delete(targetType: IModal["targetType"], target: IModal["target"]): IModal  {
-    return {action: 'delete', targetType: targetType, target: target};
+    return target
   }
 }
 
 export default Modal;
+
+
+

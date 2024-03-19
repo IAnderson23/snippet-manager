@@ -16,10 +16,11 @@ interface IFragmentTarget {
   item: IFragment;
 }
 
+export type IAction = 'create' | 'edit' | 'delete';
 export type ITarget = IFolderTarget | ISnippetTarget | IFragmentTarget;
 
 export interface IModal {
-  action: 'create' | 'edit' | 'delete';
+  action: IAction
   target: ITarget
 }
 

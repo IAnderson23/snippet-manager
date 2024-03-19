@@ -38,14 +38,14 @@ function SnippetItem({itemId}: ISnippetItemProps): ReactElement {
   }
 
   const isActive = useMemo((): string => {
-    if (snippet.id === itemId) {
+    if (snippet?.id === itemId) {
       setIsCurrent(true)
       return 'active';
     } else {
       setIsCurrent(false);
       return '';
     }
-  }, [itemId, snippet.id])
+  }, [itemId, snippet?.id])
 
   function handleClick(snippet: ISnippet): void {
     updateRecentSnippets(snippet);

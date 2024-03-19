@@ -1,6 +1,6 @@
 import {atom} from 'jotai';
 
-import {Snippet} from "@utils/constructors/database-constructors.util.ts";
 import {ISnippet} from "@database/database.types.ts";
+import {Snippet} from "@utils/constructors/database-constructors.util.ts";
 
-export const snippetAtom = atom<ISnippet>(Snippet.create());
+export const snippetAtom = atom<ISnippet>(Snippet.default());

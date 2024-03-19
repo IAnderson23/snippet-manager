@@ -15,10 +15,8 @@ function AddTag() {
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (snippet) {
-      const newSnippet: ISnippet = {...snippet, tags: [...snippet.tags, newTag]};
-      updateSnippet(snippet.id!, newSnippet);
-    }
+    const newSnippet: ISnippet = {...snippet, tags: [...snippet.tags, newTag]};
+    updateSnippet(snippet.id!, newSnippet);
     setNewTag('')
   }
 

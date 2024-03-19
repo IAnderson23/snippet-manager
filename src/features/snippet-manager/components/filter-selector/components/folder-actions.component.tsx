@@ -16,10 +16,20 @@ function FolderActions({folder}: IFolderActionsProps): ReactElement {
 
   const label = <Icon className={'dropdown-menu-icon'} path={mdiDotsHorizontal} size={1}/>
 
+  function onRename() {
+    const modal = Modal.create('edit', folder);
+    setModal(modal);
+  }
+
+  function onDelete() {
+    const modal = Modal.create('delete', folder);
+    setModal(modal);
+  }
+
   return (
     <Menu menuLabel={label} alignment={'left'}>
-      <MenuItem label={'Rename'} onClick={() => setModal(Modal.edit('folder', folder))}/>
-      <MenuItem label={'Delete'} onClick={() => setModal(Modal.delete('folder', folder))}/>
+      <MenuItem label={'Rename'} onClick={onRename}/>
+      <MenuItem label={'Delete'} onClick={onDelete}/>
     </Menu>
   )
 }

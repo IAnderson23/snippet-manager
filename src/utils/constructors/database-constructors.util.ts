@@ -1,9 +1,13 @@
 import {IFolder, IFragment, ISnippet} from "@database/database.types.ts";
 
 export class Folder {
-  static create(name?: string): IFolder {
+  static default(): IFolder {
+    return this.create("")
+  }
+
+  static create(name: string): IFolder {
     return ({
-      name: name ?? '',
+      name: name,
       order: 0,
       snippets: [],
       isFavorite: false,
@@ -12,10 +16,14 @@ export class Folder {
 }
 
 export class Snippet {
-  static create(folderId?: number, name?: string, tags?: string[]): ISnippet {
+  static default(): ISnippet {
+    return this.create(0, "");
+  }
+
+  static create(folderId: number, name: string, tags?: string[]): ISnippet {
     return ({
-      folderId: folderId ?? 0,
-      name: name ?? '',
+      folderId: folderId,
+      name: name,
       tags: tags ?? [],
       fragments: [],
       isFavorite: false,
@@ -26,9 +34,13 @@ export class Snippet {
 }
 
 export class Fragment {
+  static default(): IFragment {
+    return this.create(0, 0);
+  }
+
   static create(snippetId: number, order: number, name?: string): IFragment {
     return ({
-      snippetId: snippetId ?? 0,
+      snippetId: snippetId,
       name: name ?? 'Fragment',
       code: 'console.log("Hello World");',
       language: 'Javascript',

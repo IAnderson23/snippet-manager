@@ -1,6 +1,7 @@
 import {SnippetSelector} from "./snippet-selector";
 import {FilterSelector} from "./filter-selector";
 import {CodeEditor} from "./code-editor";
+import {ModalController} from "./modal-controller";
 
 
 function SnippetManager() {
@@ -9,6 +10,7 @@ function SnippetManager() {
       <FilterSelector/>
       <SnippetSelector/>
       <CodeEditor/>
+      <ModalController/>
     </div>
   )
 }

@@ -1,12 +1,10 @@
 import {ISnippet} from "@database/database.types.ts";
 import {ChangeEvent, FormEvent, useState} from "react";
-import useFolderOptionList
-  from "@features/snippet-manager/components/modal-controller/hooks/folder-option-list.hook.tsx";
-
+import useFolderOptionList from "../../hooks/folder-option-list.hook.tsx";
 
 interface ISnippetFormProps {
   initialSnippet: ISnippet;
-  modalType: 'create' | 'edit';
+  modalType: 'Create' | 'Edit';
   onSubmit: (event: FormEvent<HTMLFormElement>, snippet: ISnippet) => void;
   onCancel: () => void;
 }
@@ -22,24 +20,30 @@ function SnippetForm({initialSnippet, modalType, onSubmit, onCancel}: ISnippetFo
 
   return (
     <form onSubmit={e => onSubmit(e, snippet)}>
-      <label htmlFor={'snippet-name'}>Name</label>
-      <input
-        name={"name"}
-        value={snippet.name}
-        pattern={".{2,}"}
-        required={true}
-        autoFocus={true}
-        onChange={onChange}
-      />
+      <label>
+        Name
+        <input
+          name={"name"}
+          value={snippet.name}
+          pattern={".{2,}"}
+          required={true}
+          autoFocus={true}
+          onChange={onChange}
+        />
+      </label>
 
-      <label htmlFor={'folder-name'}>Folder</label>
-      <select defaultValue={snippet.folderId}>
-        <option value={0}>Uncategorized</option>
-        {folderOptionList}
-      </select>
+      <label>
+        Folder
+        <select defaultValue={snippet.folderId}>
+          <option value={0}>Uncategorized</option>
+          {folderOptionList}
+        </select>
+      </label>
 
-      <label htmlFor={'snippet-tags'}>Tags</label>
-      <input name={"tags"} placeholder={"Optional"} onChange={onChange}/>
+      <label>
+        Tags
+        <input name={"tags"} placeholder={"Optional"} onChange={onChange}/>
+      </label>
 
       <button className={"submit"} type={"submit"}>{modalType}</button>
       <button className={"cancel"} type={"reset"} onClick={onCancel}>Cancel</button>

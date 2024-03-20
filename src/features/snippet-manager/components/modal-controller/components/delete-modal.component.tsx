@@ -1,25 +1,25 @@
-
 import {ReactElement} from "react";
 import {useAtom, useSetAtom} from "jotai";
-import {ITarget, modalAtom} from "@atoms/modal.atom.ts";
-import {IFolder, IFragment, ISnippet} from "@database/database.types.ts";
-import {deleteFolder} from "@database/api/folder.api.ts";
-import {filterAtom} from "@atoms/filter.atom.ts";
-import Filter from "@utils/constructors/filter-constructor.util.ts";
-import {snippetAtom} from "@atoms/snippet.atom.ts";
-import {deleteSnippet} from "@database/api/snippet.api.ts";
-import {deleteFragment} from "@database/api/fragment.api.ts";
-import {Snippet} from "@utils/constructors/database-constructors.util.ts";
 
+import {Snippet} from "@utils/constructors/database-constructors.util.ts";
+import {IFolder, IFragment, ISnippet} from "@database/database.types.ts";
+import Filter from "@utils/constructors/filter-constructor.util.ts";
+import {deleteFragment} from "@database/api/fragment.api.ts";
+import {deleteSnippet} from "@database/api/snippet.api.ts";
+import {deleteFolder} from "@database/api/folder.api.ts";
+import {ITarget, modalAtom} from "@atoms/modal.atom.ts";
+import {snippetAtom} from "@atoms/snippet.atom.ts";
+import {filterAtom} from "@atoms/filter.atom.ts";
+import Modal from "./modal.component.tsx";
+import {startCase} from "lodash";
 
 interface DeleteFormProps {
   target: ITarget
 }
 
-function DeleteForm({target}: DeleteFormProps): ReactElement {
+function DeleteModal({target}: DeleteFormProps): ReactElement {
   const setModal = useSetAtom(modalAtom);
   const setSnippet = useSetAtom(snippetAtom);
-
   const [filter, setFilter] = useAtom(filterAtom);
 
   function onDelete() {
@@ -53,14 +53,14 @@ function DeleteForm({target}: DeleteFormProps): ReactElement {
   }
 
   return (
-    <div className={'modal'}>
+    <Modal name={'Delete' + startCase(target.type)}>
       <form>
         <h3>Are you sure you wanted to permanently delete {target.item.name}</h3>
         <button className={'submit'} type={"button"} onClick={onDelete}>Delete</button>
         <button className={'cancel'} type={"button"} onClick={onCancel}>Cancel</button>
       </form>
-    </div>
+    </Modal>
   )
 }
 
-export default DeleteForm;
+export default DeleteModal;

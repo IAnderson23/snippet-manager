@@ -15,6 +15,7 @@ import Modal from "./modal.component.tsx";
 interface IModalProps {
   target: ITarget;
 }
+
 function CreateModal({target}: IModalProps) {
   const setModal = useSetAtom(modalAtom);
 
@@ -37,11 +38,11 @@ function CreateModal({target}: IModalProps) {
 
   function formSelector() {
     if (target.type === 'folder')
-      return <FolderForm initialFolder={target.item} modalType={'create'} onSubmit={onSubmit} onCancel={onCancel}/>
+      return <FolderForm initialFolder={target.item} modalType={'Create'} onSubmit={onSubmit} onCancel={onCancel}/>
     else if (target.type === 'snippet')
-      return <SnippetForm initialSnippet={target.item} modalType={'create'} onSubmit={onSubmit} onCancel={onCancel}/>
+      return <SnippetForm initialSnippet={target.item} modalType={'Create'} onSubmit={onSubmit} onCancel={onCancel}/>
     else
-      return <FragmentForm initialFragment={target.item} modalType={'create'} onSubmit={onSubmit} onCancel={onCancel}/>
+      return <FragmentForm initialFragment={target.item} modalType={'Create'} onSubmit={onSubmit} onCancel={onCancel}/>
   }
 
   return (

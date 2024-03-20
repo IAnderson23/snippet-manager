@@ -3,7 +3,7 @@ import {ChangeEvent, FormEvent, ReactElement, useState} from "react";
 
 interface IFolderFormProps {
   initialFolder: IFolder;
-  modalType: 'create' | 'edit';
+  modalType: 'Create' | 'Edit';
   onSubmit: (event: FormEvent<HTMLFormElement>, folder: IFolder) => void;
   onCancel: () => void;
 }
@@ -18,16 +18,18 @@ function FolderForm({initialFolder, modalType, onSubmit, onCancel}: IFolderFormP
 
   return (
     <form onSubmit={event => onSubmit(event, folder)}>
-      <label htmlFor={'folder-name'}>Name</label>
-      <input
-        id={'folder-name'}
-        name={"name"}
-        value={folder.name}
-        pattern={".{2,}"}
-        required={true}
-        autoFocus={true}
-        onChange={onChange}
-      />
+      <label>Name
+        <input
+          id={'folder-name'}
+          name={"name"}
+          value={folder.name}
+          pattern={".{2,}"}
+          required={true}
+          autoFocus={true}
+          onChange={onChange}
+        />
+      </label>
+
       <button className={"submit"} type={"submit"}>{modalType}</button>
       <button className={"cancel"} type={"reset"} onClick={onCancel}>Cancel</button>
     </form>

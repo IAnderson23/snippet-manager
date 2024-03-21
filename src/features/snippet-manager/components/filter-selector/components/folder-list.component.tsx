@@ -14,7 +14,7 @@ function FolderList(): ReactElement {
   const allFolders = useAllFolders();
 
   function onAdd() {
-    setModal(Modal.create('create', Folder.create()))
+    setModal(Modal.create('create', Folder.default()))
   }
 
   const header = (

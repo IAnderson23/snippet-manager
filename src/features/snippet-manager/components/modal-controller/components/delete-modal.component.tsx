@@ -53,7 +53,7 @@ function DeleteModal({target}: DeleteFormProps): ReactElement {
   }
 
   return (
-    <Modal name={'Delete' + startCase(target.type)}>
+    <Modal name={'Delete ' + startCase(target.type)}>
       <form>
         <h3>Are you sure you wanted to permanently delete {target.item.name}</h3>
         <button className={'submit'} type={"button"} onClick={onDelete}>Delete</button>

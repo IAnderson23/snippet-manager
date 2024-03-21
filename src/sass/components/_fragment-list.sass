@@ -1,15 +1,19 @@
 #fragment-list-container
+  display: grid
+  grid-template-columns: 1fr auto
   margin-top: 16px
   grid-column-start: 1
   grid-column-end: end
   background-color: #1a1a1a
   height: 28px
   border-radius: 8px 8px 0 0
+  overflow: hidden
 
   #fragment-list
     height: 100%
     display: flex
     flex-direction: row
+    overflow: hidden
 
     .fragment-item
       flex: 1
@@ -17,13 +21,29 @@
       flex-direction: row
       justify-content: center
       align-items: center
-      border-right: 2px solid #242424
+      border: none
       color: gray
 
       &.active
         color: white
 
-      &:last-child
-        border: none
+      &:not(:last-child)
+        border-right: 2px solid #242424
 
+
+
+  #add-fragment
+    box-sizing: border-box
+    grid-column: 2
+    border-left: 2px solid #242424
+    border-radius: 0 8px 0 0
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: 0
+    height: 28px
+    width: 48px
+
+    &:hover
+      border-color: #646cff
 

@@ -5,12 +5,13 @@ import {useEffect, useState} from "react";
 
 import ReactCodeMirror, {ViewUpdate} from "@uiw/react-codemirror";
 import {isEmpty} from "lodash";
-import {javascript} from "@codemirror/lang-javascript";
 import {updateFragment} from "@database/api/fragment.api.ts";
 import {IFragment} from "@database/database.types.ts";
 import {vscodeDark} from "@uiw/codemirror-theme-vscode";
+import {loadLanguage} from "@uiw/codemirror-extensions-langs";
 
-
+// TODO: Clear History When Switching Between Fragments
+// BUG: When You Press CTRL+Z After Switching Fragments Old Code Will Appear
 function EditorWorkspace() {
   const fragment = useAtomValue(fragmentAtom);
   const setEditorPosition = useSetAtom(editorPositionAtom);
@@ -60,13 +61,12 @@ function EditorWorkspace() {
         className={"cm-container"}
         height={"100%"}
         theme={vscodeDark}
-        extensions={[javascript({jsx: true})]}
+        extensions={[loadLanguage(fragment.language)!]}
         onChange={handleChange}
         onUpdate={handleUpdate}
       />
     </div>
 )
-
 }
 
 export default EditorWorkspace;

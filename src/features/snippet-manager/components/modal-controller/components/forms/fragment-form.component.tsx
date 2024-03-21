@@ -1,7 +1,6 @@
 import {ChangeEvent, FormEvent, useState} from "react";
 import {IFragment} from "@database/database.types.ts";
 import {supportedLanguages} from "../../utils/supported-languages.util.ts";
-import {startCase} from "lodash";
 
 interface IFragmentFormProps {
   initialFragment: IFragment;
@@ -13,8 +12,8 @@ interface IFragmentFormProps {
 function FragmentForm({initialFragment, modalType, onSubmit, onCancel}: IFragmentFormProps) {
   const [fragment, setFragment] = useState<IFragment>(initialFragment);
 
-  const languageOptionList = supportedLanguages.map((language, i) => {
-    return <option value={language} key={i}>{startCase(language)}</option>
+  const languageOptionList = supportedLanguages.map((option, i) => {
+    return <option value={option.lang} key={i}>{option.name}</option>
   })
 
   function onChange(event: ChangeEvent<HTMLSelectElement | HTMLInputElement>) {
@@ -39,7 +38,8 @@ function FragmentForm({initialFragment, modalType, onSubmit, onCancel}: IFragmen
 
       <label>
         Language
-        <select id={'fragment-language'} name={"language"} defaultValue={fragment.language} onChange={onChange}>
+        <select id={'fragment-language'} name={"language"} defaultValue={fragment.language} onChange={onChange} required={true}>
+          <option value={''} disabled={true}/>
           {languageOptionList}
         </select>
       </label>

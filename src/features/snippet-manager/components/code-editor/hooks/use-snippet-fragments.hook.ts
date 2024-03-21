@@ -19,7 +19,7 @@ function useSnippetFragments(): IFragment[] {
       if (foundFragments.length)
         setSnippetFragments(foundFragments)
       else {
-        const newFragment = Fragment.create(snippet.id!, 1);
+        const newFragment = Fragment.default(snippet.id!);
         createFragment(newFragment)
       }
 

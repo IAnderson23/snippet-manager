@@ -4,10 +4,8 @@ import Icon from "@mdi/react";
 import {mdiDotsHorizontal} from "@mdi/js";
 import {Menu, MenuItem} from "../../../../../components/dropdown-menu";
 import Modal from "@utils/constructors/modal-constructor.util.ts";
-import {Fragment} from "@utils/constructors/database-constructors.util.ts";
 import {ISnippet} from "@database/database.types.ts";
 import {ReactElement} from "react";
-
 
 interface IMenuProps {
   snippet: ISnippet;
@@ -23,13 +21,7 @@ function EditorMenu({snippet}: IMenuProps): ReactElement {
     setModal(modal);
   }
 
-  function onAddFragment() {
-    const fragment = Fragment.create(snippet.id!, snippet.fragments.length);
-    const modal = Modal.create('create', fragment);
-    setModal(modal);
-  }
-
-  function onDeleteFragment() {
+  function onDeleteSnippet() {
     const modal = Modal.create('delete', snippet);
     setModal(modal);
   }
@@ -38,8 +30,7 @@ function EditorMenu({snippet}: IMenuProps): ReactElement {
     <div id={'editor-menu'}>
       <Menu menuLabel={label} alignment={'right'}>
         <MenuItem label={'Edit Snippet'} onClick={onEditSnippet}/>
-        <MenuItem label={'Add Fragment'} onClick={onAddFragment}/>
-        <MenuItem label={'Delete Fragment'} onClick={onDeleteFragment}/>
+        <MenuItem label={'Delete Snippet'} onClick={onDeleteSnippet}/>
       </Menu>
     </div>
   )

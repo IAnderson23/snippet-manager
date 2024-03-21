@@ -1,3 +1,4 @@
+import {LanguageName} from "@uiw/codemirror-extensions-langs";
 
 export interface IFolder {
   id?: number;
@@ -23,6 +24,6 @@ export interface IFragment {
   snippetId: number;
   name: string;
   code: string;
-  language: string;
+  language: LanguageName;
   order: number;
 }

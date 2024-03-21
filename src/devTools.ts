@@ -1,6 +1,7 @@
 import {IFolder, IFragment, ISnippet} from "@database/database.types";
 import {Folder, Fragment, Snippet} from "@utils/constructors/database-constructors.util.ts";
 import db from "@database/database-init.ts";
+import {loadLanguage} from "@uiw/codemirror-extensions-langs";
 
 
 declare global {
@@ -23,7 +24,7 @@ const devTools = {
     const folders: IFolder[] = [folder1, folder2, folder3, folder4];
 
     const snippet1: ISnippet = {...Snippet.create(1, "Quick Start", ["JavaScript", "Quick Start"]), fragments: [1]};
-    const snippet2: ISnippet = {...Snippet.create(1, "Custom Hooks", ["JavaScript"]), fragments: [2]};
+    const snippet2: ISnippet = {...Snippet.create(1, "Custom Hooks", ["javaScript"]), fragments: [2]};
     const snippet3: ISnippet = {...Snippet.create(2, "Quick Start", ["JavaScript", "Quick Start"]), fragments: [3]};
     const snippet4: ISnippet = {...Snippet.create(3, "Sorting Functions", ["C++"]), fragments: [4]};
     const snippet5: ISnippet = {...Snippet.create(0, "Math Operations", ["C++"]), fragments: [5, 6, 7, 8]};
@@ -44,6 +45,8 @@ const devTools = {
     const fragment7: IFragment = {...Fragment.create(5, 3), code: "function multiply(a, b) {\n  return a * b;\n}"}
     const fragment8: IFragment = {...Fragment.create(5, 4), code: "function divide(a, b) {\n  return a / b;\n}"}
     const fragments: IFragment[] =  [fragment1, fragment2, fragment3, fragment4, fragment5, fragment6, fragment7, fragment8];
+
+    console.log(loadLanguage('javascript'))
 
     db.folders.bulkPut(folders);
     db.snippets.bulkPut(snippets);

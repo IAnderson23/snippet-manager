@@ -19,6 +19,7 @@
     "@mdi/js": "^7.4.47",
     "@mdi/react": "^1.6.1",
     "@types/lodash": "^4.14.202",
+    "@uiw/codemirror-extensions-langs": "^4.21.24",
     "@uiw/codemirror-theme-vscode": "^4.21.24",
     "@uiw/react-codemirror": "^4.21.24",
     "dayjs": "^1.11.10",

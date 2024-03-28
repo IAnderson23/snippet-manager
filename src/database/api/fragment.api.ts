@@ -57,6 +57,7 @@ export function deleteFragment(fragmentID: number, options: IDeleteOption = {isS
   return new Promise<IResponse>((resolve) => {
     db.fragments.delete(fragmentID);
     resolve({status: 'ok', message: `Fragment ${fragmentID} Was Deleted`, options:)
+
   })
 
   function handleSuccess(): void {

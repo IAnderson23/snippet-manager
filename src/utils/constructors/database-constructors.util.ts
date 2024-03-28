@@ -34,14 +34,14 @@ export class Snippet {
 }
 
 export class Fragment {
-  static default(snippetId: number): IFragment {
-    return this.create(snippetId, 1);
+  static default(): IFragment {
+    return this.create(0, 0);
   }
 
-  static create(snippetId: number, order: number, name?: string): IFragment {
+  static create(snippetId: number, order: number): IFragment {
     return ({
       snippetId: snippetId,
-      name: name ?? 'Fragment',
+      name: 'Fragment',
       code: 'console.log("Hello World");',
       language: 'javascript',
       order: order,

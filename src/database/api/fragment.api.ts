@@ -4,6 +4,9 @@ import {IFragment} from "../database.types.ts";
 interface IResponse {
   status: 'ok' | 'error';
   message: string;
+  options?: {
+    isSilent: boolean;
+  }
 }
 
 export async function createFragment(fragment: IFragment): Promise<IResponse> {
@@ -25,29 +28,40 @@ export async function createFragment(fragment: IFragment): Promise<IResponse> {
   } else
     response = {status: 'error', message: `Error Could Not Find Snippet With Given Id`};
 
+  if(response.status === 'error')
+    alert('Error Creating Fragment');
+
   return response;
 }
 
-export function updateFragment(fragmentID: number, updatedData: IFragment): void {
-  db.fragments.update(fragmentID, updatedData).then(updated => {
-    if (updated)
-      console.log(`Fragment ${fragmentID} Was Updated`)
-    else {
-      alert('Error Updating Fragment');
-      console.log(`Error: No Fragment With A ID Of ${fragmentID}`)
-    }
-  })
+export async function updateFragment(fragmentID: number, updatedData: IFragment): Promise<IResponse> {
+  const isUpdated = await db.fragments.update(fragmentID, updatedData)
+  let response: IResponse;
+
+  if (isUpdated)
+    response = {status: 'ok', message:`Fragment ${fragmentID} Was Updated`}
+  else
+    response = {status: 'error', message: `Error: No Fragment With A ID Of ${fragmentID}`}
+
+  if(response.status === 'error')
+    alert('Error Updating Fragment');
+
+  return response;
 }
 
 interface IDeleteOption {
   isSilent: boolean
 }
 
-export function deleteFragment(fragmentID: number, option: IDeleteOption = {isSilent: false}): void {
-  db.fragments.delete(fragmentID).then(handleSuccess)
+export function deleteFragment(fragmentID: number, options: IDeleteOption = {isSilent: false}): Promise<IResponse> {
+  return new Promise<IResponse>((resolve) => {
+    db.fragments.delete(fragmentID);
+    resolve({status: 'ok', message: `Fragment ${fragmentID} Was Deleted`, options:)
+
+  })
 
   function handleSuccess(): void {
-    if (!option.isSilent)
+    if (!options.isSilent)
       console.log(`Fragment ${fragmentID} Was Deleted`)
   }
 }

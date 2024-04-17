@@ -56,12 +56,7 @@ interface IDeleteOption {
 export function deleteFragment(fragmentID: number, options: IDeleteOption = {isSilent: false}): Promise<IResponse> {
   return new Promise<IResponse>((resolve) => {
     db.fragments.delete(fragmentID);
-    resolve({status: 'ok', message: `Fragment ${fragmentID} Was Deleted`, options:)
+    resolve({status: 'ok', message: `Fragment ${fragmentID} Was Deleted`, options: options})
 
   })
-
-  function handleSuccess(): void {
-    if (!options.isSilent)
-      console.log(`Fragment ${fragmentID} Was Deleted`)
-  }
 }
